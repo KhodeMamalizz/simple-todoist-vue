@@ -7,7 +7,7 @@ npm install
 
 ### Compiles and hot-reloads for development
 ```
-npx json-server --watch database/database.jsongit commit -m "first commit"
+npx json-server --watch database/database.json
 npm run serve
 ```
 
