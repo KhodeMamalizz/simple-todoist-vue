@@ -1,7 +1,9 @@
 <template>
   <div class="mt-5">
-    <div class="grid md:gr h-auto rounded-md mt-4 p-4">
-      <SingleTodo v-for="(item, index) in Tasks" :key="index" :project="item" @deleted="deleted" />
+    <div class="grid md:grid-cols-2 gap-4 h-auto rounded-md mt-4 p-4">
+      <div v-for="item in Tasks" :key="item.index">
+        <SingleTodo :project="item" @deleted="deleted" />
+      </div>
     </div>
   </div>
 </template>

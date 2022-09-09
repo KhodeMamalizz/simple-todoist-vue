@@ -1,5 +1,6 @@
 <template>
   <Header />
+  <router-view></router-view>
 </template>
 
 <script>
@@ -14,6 +15,6 @@ export default {
 <style>
 body{
   background-color: #2E0249;
-  padding: 15px;
+  padding: 20px;
 }
 </style>
