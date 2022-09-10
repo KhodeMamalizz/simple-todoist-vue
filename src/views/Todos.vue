@@ -10,6 +10,7 @@
 
 <script>
 import SingleTodo from "../components/SingleTodo.vue";
+import axios from 'axios';
 
 export default {
   data: () => ({
@@ -29,9 +30,8 @@ export default {
     }
   },
   mounted() {
-    fetch("http://localhost:3000/todos")
-      .then((res) => res.json())
-      .then((data) => (this.Tasks = data));
+    axios.get("http://localhost:3000/todos")
+      .then((res) => this.Tasks = res.data)
   },
 };
 </script>

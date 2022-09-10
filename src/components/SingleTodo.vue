@@ -1,7 +1,18 @@
 <template>
   <div
-    class="task w-full rounded-md flex items-center justify-between py-4 px-5 bg-[#ffffff16] text-[#fff]"
-    :class="{'done' : project.complete}"
+    class="
+      task
+      w-full
+      rounded-md
+      flex
+      items-center
+      justify-between
+      py-4
+      px-5
+      bg-[#ffffff16]
+      text-[#fff]
+    "
+    :class="{ done: project.complete }"
   >
     <div class="flex flex-col">
       <p
@@ -32,19 +43,19 @@ export default {
   }),
   methods: {
     deleteProject() {
-      axios.delete(`http://localhost:3000/todos/${this.project.id}`)
-        .then(
-          this.$emit('deleted' , this.project.id)
-        );
+      axios
+        .delete(`http://localhost:3000/todos/${this.project.id}`)
+        .then(this.$emit("deleted", this.project.id));
     },
-    changeComplete(){
-      fetch(`http://localhost:3000/todos/${this.project.id}`, {
-        method: 'PATCH',
-        headers: {'Content-Type' : 'application/json'},
-        body: JSON.stringify({complete : !this.project.complete})
-      })
-      .then(() => this.$emit('done' , this.project.id))
-    }
+    changeComplete() {
+      axios
+        .put(`http://localhost:3000/todos/${this.project.id}`, {
+          title: "Creating gmail",
+          details: "lorem ipsum lorem ipsum lorem ipsum",
+          complete: !this.project.complete
+        })
+        .then(() => this.$emit("done", this.project.id));
+    },
   },
 };
 </script>

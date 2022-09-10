@@ -1,7 +1,9 @@
 <template>
   <div class="container mx-auto">
     <Header />
-    <router-view></router-view>
+    <transition enter-active-class="animated fadeInUp">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
