@@ -1,20 +1,22 @@
 <template>
-  <Header />
-  <router-view></router-view>
+  <div class="container mx-auto">
+    <Header />
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-import Header from './components/Header.vue';
+import Header from "./components/Header.vue";
 export default {
-  components:{
-    Header
-  }
-}
+  components: {
+    Header,
+  },
+};
 </script>
 
 <style>
-body{
-  background-color: #2E0249;
+body {
+  background-color: #2e0249;
   padding: 20px;
 }
 </style>
