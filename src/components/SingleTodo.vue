@@ -13,6 +13,7 @@
       text-[#fff]
     "
     :class="{ done: project.complete }"
+    draggable="true"
   >
     <div class="flex flex-col">
       <p
@@ -30,7 +31,8 @@
         <i class="icon fa-solid fa-pen"></i>
       </router-link>
       <i @click="deleteProject" class="icon fa-solid fa-trash"></i>
-      <i @click="changeComplete" class="icon fa-solid fa-check"></i>
+      <i v-if="project.complete === false" @click="changeComplete" class="icon fa-solid fa-check"></i>
+      <i v-else @click="changeComplete" class="icon fa-solid fa-xmark"></i>
     </div>
   </div>
 </template>
