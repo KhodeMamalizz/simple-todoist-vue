@@ -10,7 +10,7 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 a {
   text-decoration: none;
   font-size: 18px;

@@ -1,6 +1,6 @@
 <template>
   <form
-    @submit.prevent="craeteTask"
+    @submit.prevent="updateTask"
     class="
       w-2/5
       bg-[#ffffff16]
@@ -21,12 +21,12 @@
       <label>Details : </label>
       <textarea class="h-24" v-model="newTask.details"></textarea>
     </div>
-    <button class="my-5" type="submit">Create New</button>
+    <button class="my-5" type="submit">Update Task</button>
   </form>
 </template>
 
 <script>
-import http from '../config/http';
+import http from "../config/http";
 
 export default {
   data: () => ({
@@ -37,25 +37,24 @@ export default {
     },
   }),
   methods: {
-    craeteTask() {
+    updateTask() {
       if (this.newTask.title === "" && this.newTask.details === "") {
         alert("fill the input");
-      } 
-      else {
-        // fetch("http://localhost:3000/todos", {
-        //   method: "POST",
-        //   headers: { "Content-Type": "application/json" },
-        //   body: JSON.stringify(this.newTask),
-        // })
-        //   .then(() => this.$router.push('/'))
-        //   .catch((err) => console.log(err));
-
-
-        http.post("http://localhost:3000/todos" ,this.newTask)
+      } else {
+        http.put(`http://localhost:3000/todos/${this.$route.params.id}`, this.newTask)
         .then(() => this.$router.push('/'))
-        .catch((err) => console.log(err));
+        .catch(err => console.log(err))
       }
     },
+  },
+  mounted() {
+    http
+      .get(`http://localhost:3000/todos/${this.$route.params.id}`)
+      .then((res) => {
+        this.newTask.title = res.data.title;
+        this.newTask.details = res.data.details;
+        this.newTask.title = res.data.title;
+      });
   },
 };
 </script>

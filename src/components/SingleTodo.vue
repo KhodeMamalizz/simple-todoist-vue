@@ -25,8 +25,10 @@
         {{ project.details }}
       </p>
     </div>
-    <div class="flex">
-      <i class="icon fa-solid fa-pen"></i>
+    <div class="flex items-center">
+      <router-link :to="{name: 'EditTask' ,  params: {id: project.id} }">
+        <i class="icon fa-solid fa-pen"></i>
+      </router-link>
       <i @click="deleteProject" class="icon fa-solid fa-trash"></i>
       <i @click="changeComplete" class="icon fa-solid fa-check"></i>
     </div>
@@ -60,7 +62,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .task {
   border-left: 5px solid red !important;
   transition: all 0.3s;
@@ -71,5 +73,9 @@ export default {
 
 .icon {
   @apply mx-1 md:mx-2 text-[#fff] cursor-pointer hover:text-gray-400 transition scale-90 md:scale-105;
+}
+
+a{
+  margin: 0px;
 }
 </style>
