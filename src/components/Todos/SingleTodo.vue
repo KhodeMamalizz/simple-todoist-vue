@@ -43,6 +43,7 @@
 
 <script>
 import axios from "axios";
+import gsap from 'gsap';
 
 export default {
   props: ["project"],
@@ -65,6 +66,22 @@ export default {
         .then(() => this.$emit("done", this.project.id));
     },
   },
+  mounted(){
+    gsap.fromTo(".task" , 
+      {
+        opacity: 0,
+        y: "100%"
+      },
+      {
+        duration: 1,
+        opacity: 1,
+        y: 0,
+        delay: 0.5,
+        ease: "power3.out",
+        stagger: 0.2
+      }
+    )
+  }
 };
 </script>
 
