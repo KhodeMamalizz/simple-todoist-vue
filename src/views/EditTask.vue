@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import EditTask from "../components/EditForm.vue";
+import EditTask from "../components/Forms/EditForm.vue";
 export default {
   components: {
     EditTask,

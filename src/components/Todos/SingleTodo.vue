@@ -27,11 +27,15 @@
       </p>
     </div>
     <div class="flex items-center">
-      <router-link :to="{name: 'EditTask' ,  params: {id: project.id} }">
+      <router-link :to="{ name: 'EditTask', params: { id: project.id } }">
         <i class="icon fa-solid fa-pen"></i>
       </router-link>
       <i @click="deleteProject" class="icon fa-solid fa-trash"></i>
-      <i v-if="project.complete === false" @click="changeComplete" class="icon fa-solid fa-check"></i>
+      <i
+        v-if="project.complete === false"
+        @click="changeComplete"
+        class="icon fa-solid fa-check"
+      ></i>
       <i v-else @click="changeComplete" class="icon fa-solid fa-xmark"></i>
     </div>
   </div>
@@ -56,7 +60,7 @@ export default {
         .put(`http://localhost:3000/todos/${this.project.id}`, {
           title: "Creating gmail",
           details: "lorem ipsum lorem ipsum lorem ipsum",
-          complete: !this.project.complete
+          complete: !this.project.complete,
         })
         .then(() => this.$emit("done", this.project.id));
     },
@@ -77,7 +81,7 @@ export default {
   @apply mx-1 md:mx-2 text-[#fff] cursor-pointer hover:text-gray-400 transition scale-90 md:scale-105;
 }
 
-a{
+a {
   margin: 0px;
 }
 </style>

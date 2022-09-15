@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import http from '../config/http';
+import http from '../../config/http';
 
 export default {
   data: () => ({
@@ -42,15 +42,6 @@ export default {
         alert("fill the input");
       } 
       else {
-        // fetch("http://localhost:3000/todos", {
-        //   method: "POST",
-        //   headers: { "Content-Type": "application/json" },
-        //   body: JSON.stringify(this.newTask),
-        // })
-        //   .then(() => this.$router.push('/'))
-        //   .catch((err) => console.log(err));
-
-
         http.post("http://localhost:3000/todos" ,this.newTask)
         .then(() => this.$router.push('/'))
         .catch((err) => console.log(err));

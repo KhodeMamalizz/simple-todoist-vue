@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import NewTask from '../components/AddForm.vue';
+import NewTask from '../components/Forms/AddForm.vue';
 export default {
     components:{
         NewTask
